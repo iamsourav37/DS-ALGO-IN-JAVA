@@ -17,11 +17,25 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
     @Override
     public void insertFirst(E value) {
         this.head = new Node<>(value, this.head);
+        this.size++;
     }
 
     @Override
     public void insertLast(E value) {
+        if(this.head == null){
+            insertFirst(value);
+            return;
+        }
+        Node<E> node = new Node<>(value, null); // next is null because it is the last node
+        Node<E> temp, prev;
+        temp = prev = this.head;
 
+        while(temp != null){
+            prev = temp;
+            temp = temp.getNext();
+        }
+        prev.setNext(node);
+        this.size++;
     }
 
     @Override
