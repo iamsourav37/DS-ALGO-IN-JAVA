@@ -67,7 +67,10 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     @Override
     public E deleteFirst() {
-        return null;
+        E value = this.head.getValue();
+        this.head = this.head.getNext();
+        this.size--;
+        return value;
     }
 
     @Override

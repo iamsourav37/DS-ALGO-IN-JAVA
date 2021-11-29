@@ -22,6 +22,8 @@ public class Runner {
         intList.add(3, 333);
         System.out.println("Int list size : "+ intList.size());
         intList.add(0, 4545);
+
+        System.out.println(intList.deleteFirst());
         intList.show();
     }
 }
