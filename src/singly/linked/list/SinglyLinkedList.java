@@ -39,13 +39,30 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
     }
 
     @Override
-    public void add(E value) {
-
+    public void add(E value) { // added at last
+        insertLast(value);
     }
 
     @Override
-    public void add(int index, E value) {
+    public void add(int index, E value)throws Exception{
+//        first check index is valid or not
+        if(index<0 || index>=this.size){
+            throw new Exception(index+" Index is out of range");
+        }else if(index == 0){
+            insertFirst(value);
+            return;
+        }
+//
+        Node<E> temp = this.head;
+        int counter = 0;
 
+        while(index-1 != counter){
+            counter++;
+            temp = temp.getNext();
+        }
+        Node<E> node = new Node<>(value, temp.getNext());
+        temp.setNext(node);
+        this.size++;
     }
 
     @Override
