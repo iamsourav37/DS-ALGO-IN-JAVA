@@ -11,6 +11,7 @@ public class Runner {
 
         strList.add(3, "Rocket");
         strList.add(1, "Animesh");
+        System.out.println(strList.deleteLast());
         strList.show();
 
         SinglyLinkedList<Integer> intList = new SinglyLinkedList<>();
@@ -24,6 +25,8 @@ public class Runner {
         intList.add(0, 4545);
 
         System.out.println(intList.deleteFirst());
+        System.out.println(intList.deleteLast());
+        System.out.println(intList.size());
         intList.show();
     }
 }

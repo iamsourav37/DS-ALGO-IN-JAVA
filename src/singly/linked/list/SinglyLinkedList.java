@@ -67,6 +67,12 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     @Override
     public E deleteFirst() {
+        if(this.head == null){
+//          you may throw exception here
+
+            System.out.println("List is empty");
+            return null;
+        }
         E value = this.head.getValue();
         this.head = this.head.getNext();
         this.size--;
@@ -75,11 +81,31 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     @Override
     public E deleteLast() {
-        return null;
+        if(this.head == null){
+//          you may throw exception here
+            System.out.println("List is empty");
+            return null;
+        }else if(this.size == 1){
+            E value = this.head.getValue();
+            this.head = null;
+            return value;
+        }
+
+        Node<E> temp, prev;
+        temp = prev = this.head;
+
+        while(temp.getNext() != null){
+            prev = temp;
+            temp = temp.getNext();
+        }
+        prev.setNext(null);
+        this.size--;
+        return temp.getValue();
     }
 
     @Override
     public E remove(int index) {
+
         return null;
     }
 
