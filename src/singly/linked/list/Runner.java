@@ -27,6 +27,7 @@ public class Runner {
         System.out.println(intList.deleteFirst());
         System.out.println(intList.deleteLast());
         System.out.println(intList.size());
+        System.out.println(intList.remove(2));
         intList.show();
     }
 }

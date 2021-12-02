@@ -105,8 +105,27 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     @Override
     public E remove(int index) {
+//        check is valid index or not
+        if(index<0 || index>=this.size){
+//            you may throw an exception here
+            System.out.println("Invalid index");
+            return null;
+        }else if(index == 0){
+            return deleteFirst();
+        }else if(index == this.size-1){
+            return deleteLast();
+        }
 
-        return null;
+        int counter = 0;
+        Node<E> temp = this.head;
+        while(counter != index-1){
+            counter++;
+            temp = temp.getNext();
+        }
+        Node<E> deletingNode = temp.getNext();
+        temp.setNext(deletingNode.getNext());
+        this.size--;
+        return deletingNode.getValue();
     }
 
     @Override
